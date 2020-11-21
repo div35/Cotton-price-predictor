@@ -9,16 +9,16 @@ module.exports.input = async (req, res) => {
 
         const arr = [USDollar , Temperature , FertilizerperHectare , Brightness , Yellowness , OilPrice , PriceOfcompitingcrop , FiberTenacity , Climate , State , Month];
 
-        console.log(arr);
+        // console.log(arr);
         // res.status(200).send(arr);
-        exec("python ravi.py " + arr.join(' '), (err, stdout, stderr) => {
+        exec("python predictor.py " + arr.join(' '), (err, stdout, stderr) => {
             if(err) console.error(err)
             ans = stdout.toString();
-            console.log(ans);
-            console.log(stderr.toString())
-            res.json({res: stdout.toString()})
+            console.log("Before" + ans);
+            // console.log(2 + stderr.toString())
+            res.status(200).send(ans);
         })
-        // console.log(req.body);
+        // console.log(3 + req.body);
     }
     catch (err) {
         console.error(err);

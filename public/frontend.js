@@ -7,11 +7,8 @@ const inputfunc = async (a,b,c,d,e,f,g,h,i,j,k) => {
         // console.log(data);
         // console.log("HI");
         const res = await axios.post("/api/input", data);
-        console.log(res);
-        alert("The expected value of cotton from the given factors is : " + res.data.res + " INR");
-        if(res){
-            // alert("Done");
-        }
+        console.log("After" , res.data);
+            alert("The expected value of cotton from the given factors is : " + res.data + " INR");
     } catch (err) {
         console.log(err);
     }
